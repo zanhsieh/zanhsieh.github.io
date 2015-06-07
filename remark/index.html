@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="remark,remarkjs,markdown,slideshow,presentation" />
+    <meta name="description" content="A simple, in-browser, markdown-driven slideshow tool." />
+    <title>Remark介紹</title>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {
+        font-family: 'Droid Serif';
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+        .left-column h2:last-of-type, .left-column h3:last-child {
+          color: #000;
+        }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+#remark
+製作幻燈片的利器：markdown
+
+[zanhsieh 翻譯 2015] [英文原文](http://remarkjs.com)
+
+.footnote[直接訪問作者[Github項目](https://github.com/gnab/remark)]
+---
+## 它是啥，為何我要用它？
+---
+layout: false
+.left-column[
+  ## 它是啥？
+]
+.right-column[
+  它是一種簡單、瀏覽器內運行、Markdown 語法驅動的幻燈片製作工具，目標用戶是懂得使用HTML與CSS的人。其功能有：
+
+- Markdown格式，帶智能擴展
+
+- 簡報者模式，帶複本窗口
+
+- 語法高亮，支持多種語言
+
+- 幻燈片縮放，因此在所有設備 / 解析度上外觀皆類似 .red[*]
+
+- 支援觸屏智能手機與平板電腦，如，以滑動方式導覽幻燈片
+
+.footnote[.red[*] 至少瀏覽器已竭盡其力]
+]
+---
+.left-column[
+  ## 它是啥？
+  ## 為何我要用它？
+]
+.right-column[
+如果你理想的幻燈片製作流程包括任何下列步驟：
+
+- 只寫下你腦海裡的東西
+
+- 對幻燈片套用些基本的樣式
+
+- 容易與他人合作
+
+- 展示並分享給大家
+
+那remark就是你下個.red[*]簡報的最佳拍檔！
+
+.footnote[.red[*] 你大概也會想將現有的簡報轉換至remark]
+]
+---
+.left-column[
+  ## 它是啥？
+  ## 為何我要用它？
+]
+.right-column[
+隨著幻燈片用上Markdown來表達，你可以：
+
+- 專注於內容，以純文本表達你所想，而不需擔心那些花俏的圖與惱人的特效該放哪
+
+隨著幻燈片實際上僅是HTML文本，你可以：
+
+- 在任何像樣的瀏覽器裡顯示
+
+- 套用CSS樣式妝點簡報，一如其他HTML文本一樣
+
+- 離線使用！
+
+隨著幻燈片包含在純文本裡，你可以：
+
+- 存在任何你喜歡的地方：如你的電腦、用Dropbox帳號託管、或者Github頁面託管，同你要簡報的東西存在一起
+
+- 易於與他人協作編纂，利用你最喜歡的代碼管理工具如Git與Mercurial來追蹤變動
+]
+---
+template: inverse
+
+## 這麼說來，它是如何運作的？
+---
+name: how
+
+.left-column[
+  ## 它是如何運作的？
+### - Markdown
+]
+.right-column[
+在瀏覽器裡運行的JavaScript，轉換一塊塊Markdown格式的文字，成為一張張的幻燈片：
+
+```remark
+# 幻燈片1
+這是幻燈片1
+
+---
+
+# 幻燈片2
+這是幻燈片2
+```
+
+.slides[
+  .first[
+  ### 幻燈片1
+  這是幻燈片1
+  ]
+  .second[
+  ### 幻燈片2
+  這是幻燈片2
+  ]
+]
+
+標準Markdown語法都適用，僅有一項例外：
+
+  - 一行內若包括了3個連續的半形減號，會形成一張新幻燈片（HTML水平分隔符`&lt;hr /&gt;`不包在內）
+
+若你不熟悉Markdown語法格式，不妨訪問下[Markdown網站](http://daringfireball.net/projects/markdown/)
+]
+---
+.left-column[
+  ## 它是如何運作的？
+  ### - Markdown
+  ### - 其HTML秘辛
+]
+.right-column[
+要託管樣式、Markdown文本、以及自行生成的幻燈片，一個簡單的HTML文檔就已足夠：
+
+```xml
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      /* 幻燈片樣式區 */
+    </style>
+  </head>
+  <body>
+*    <textarea id="source">
+      <!-- 幻燈片Markdown文本區 -->
+    &lt;/textarea&gt;
+*    <script src="remark.js">
+    </script>
+    <script>
+*      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
+```
+
+你可能會想下載remark來使得你的幻燈片不依賴任何線上資源，或直接連[最新版](http://remarkjs.com/downloads/remark-latest.min.js)供在線使用
+]
+---
+template: inverse
+
+## 當然啦，Markdown語法只可達到這程度
+---
+.left-column[
+  ## Markdown 擴展
+]
+.right-column[
+為了要幫助用戶擺脫幻燈片佈局與格式的難題，remark收錄了一些Markdown的擴展：
+
+- 幻燈片屬性（slide properties），用來做命名、樣式、模板套用
+
+- 內容類（content classes），用來裝飾某些特定的內容
+
+- 語法高亮（syntax highlighting）支援多種程式語言
+]
+
+---
+.left-column[
+  ## Markdown 擴展
+  ### - 幻燈片屬性
+]
+.right-column[
+幻燈片開始幾行包括了鍵值對，remark會將它解讀成該幻燈片的屬性：
+
+```remark
+name: 議程
+class: middle, center
+
+# 議程
+
+本張幻燈片名為{{ name }}
+
+```
+幻燈片屬性有多種用途：
+
+* 利用屬性.red[name]與.red[class]來命名、裝飾幻燈片
+
+* 利用屬性.red[template]與.red[layout]來把幻燈片當模板使用
+
+* 擴充.red[{{ property }}]表達式涵蓋到屬性值
+
+請參見幻燈片屬性[完整列表](https://github.com/gnab/remark/wiki/Markdown#slide-properties)
+]
+---
+.left-column[
+  ## Markdown 擴展
+  ### - 幻燈片屬性
+  ### - 內容類
+]
+.right-column[
+文本內任何出現次數、一或多個點CSS類名跟著方括弧，將被置換成套用過指定CSS類的方括弧內容：
+
+```remark
+.footnote[.red.bold[*] 重要腳註]
+```
+
+HTML結果：
+
+```xml
+<span class="footnote">
+  <span class="red bold">*</span> 重要腳註
+</span>
+```
+]
+---
+.left-column[
+  ## Markdown 擴展
+  ### - 幻燈片屬性
+  ### - 內容類
+  ### - 語法高亮
+]
+.right-column[
+
+用戶可自[支援程式語言](https://github.com/gnab/remark/wiki/Configuration#highlighting)列表中指定哪種語言以將代碼塊語法高亮
+
+透過套用 [GFM](http://github.github.com/github-flavored-markdown/) 代碼塊，用戶可以輕易的指定哪種語言要高亮：
+
+.pull-left[
+
+<pre><code>```javascript
+function add(a, b)
+  return a + b
+end
+```</code></pre>
+]
+.pull-right[
+
+<pre><code>```ruby
+def add(a, b)
+  a + b
+end
+```</code></pre>
+]
+
+Remark為用戶提供了眾多高亮[樣式](https://github.com/gnab/remark/wiki/Configuration#highlighting)，其收錄了許多各式各樣編輯器與整合開發環境裡的知名主題
+
+]
+---
+.left-column[
+  ## 簡報者模式
+]
+.right-column[
+為了幫助用戶簡報，簡報者模式由下列所提供功能構成：
+
+- 顯示現行幻燈片註記，以幫助你記得要點
+
+- 顯示下一張幻燈片，以讓通知你哪些內容即將到來
+
+- 在延伸顯示器上複製一份現行幻燈片以供聽眾瀏覽
+]
+---
+.left-column[
+  ## 簡報者模式
+  ### - 內嵌註記
+]
+.right-column[
+就像3個減號分離幻燈片，3個問號標記分割了幻燈片內容與註記：
+
+```
+幻燈片 1 內容
+
+*???
+
+幻燈片 1 註記
+
+---
+
+幻燈片 2 內容
+
+*???
+
+幻燈片 2 註記
+```
+
+remark也將幻燈片註記以Markdown語法處理，也就是說它跟幻燈片內容轉換方式是一樣的
+
+按下__P__鍵以切換簡報者模式
+]
+???
+恭喜你，你剛剛切換到簡報者模式!
+
+現在按下__P__鍵切換回去
+---
+.left-column[
+  ## 簡報者模式
+  ### - 內嵌註記
+  ### - 複本窗口
+]
+.right-column[
+簡報者模式當然對觀眾沒啥意義
+
+開啟複本窗口讓你：
+
+- 移動複本窗口到另一塊觀眾看得到的延伸畫面
+
+- 將原本幻燈片切換到簡報者模式
+
+- 照常捲頁，複本窗口會自動跟上
+
+按下 __C__ 會在新瀏覽器視窗開啟現下幻燈片複本窗口
+]
+---
+template: inverse
+
+## 是時候開始動手做了！
+---
+.left-column[
+  ## 開始動手
+]
+.right-column[
+開始動手僅需少少幾步：
+
+1. 訪問[項目站點](http://github.com/gnab/remark)
+
+2. 照著開始章節步驟做
+
+想獲取更多如何使用remark資訊，請查閱其[維基](https://github.com/gnab/remark/wiki)頁面
+]
+---
+name: last-page
+template: inverse
+
+## 教完了，各位（到目前為止囉）！
+
+本幻燈片是利用[remark](http://github.com/gnab/remark)製作
+    </textarea>
+    <script src="downloads/remark-latest.min.js"></script>
+    <script>
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="remark.language.js"></script>
+    <script>
+      var slideshow = remark.create({
+          highlightStyle: 'monokai',
+          highlightLanguage: 'remark'
+        }) ;
+    </script>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-44561333-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = 'https://ssl.google-analytics.com/ga.js';
+        var s = document.scripts[0];
+        s.parentNode.insertBefore(ga, s);
+      }());
+    </script>
+  </body>
+</html>
+
