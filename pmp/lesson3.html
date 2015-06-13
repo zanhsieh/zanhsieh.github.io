@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="remark,remarkjs,markdown,slideshow,presentation" />
+    <meta name="description" content="A simple, in-browser, markdown-driven slideshow tool." />
+    <title>PMP</title>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {
+        font-family: 'Droid Serif';
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #000;
+        width: 45%;
+        height: 92%;
+        float: left;
+      }
+      .right-column {
+        width: 45%;
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+#Lession 3
+#Project Scope Management
+Script by Unknown
+---
+layout: false
+## Project Scope Management Overview
+---
+## Plan Scope Management
+---
+## Plan Scope Management
+- Process of creating a scope management plan that document how scope will be defined, validated and controlled
+- Provide guidance and direction on how scope will be managed throughout the project
+???
+- Process of creating a scope management plan generally not do unless the project is complicated
+---
+## Collect Requirements
+---
+## Collect Requirements
+---
+## Collect Requirements (Input)
+- Project Charter
+- Stakeholder Register
+  - Use to identify stakeholder and can provide information on project detail and requirements
+???
+- Stakeholders are responsible for work authorization
+---
+## Collect Requirements (Tools and Techniques)
+- Interview
+  - Formal or informal approach to discover information form stakeholder
+  - Interview experienced project participants, stakeholders and subject matter experts
+  - Usually (but not limited to) conduct on one-by-one
+---
+## Collect Requirements (Tools and Techniques)
+- Focus Groups
+  - Bring together pre-qualified stakeholders and subject matter experts to learn on their expectation and attitudes about a proposed product
+  - Trained moderator guides the group through interactive discussion
+  - More natural than a one-on-one interview
+???
+- Without moderator, the focus group usually become off-topic discussion
+---
+## Collect Requriements (Tools and Techniques)
+- Facilitated Workshops
+  - Bring key cross-function stakeholders together to define requirements
+  - Quickly define cross-functional requirements
+  - Reconciling stakeholders difference
+  - Build trust, foster relationship and consensus, improve communication
+???
+- Get to know what they want -> make appointment for them -> follow-up 
+---
+## Collect Requirements (Tools and Techniques)
+- Group Creativity Techniques
+  - Brainstorming
+  - Nominal Group Technique
+    - Enhancing brainstorming with voting process for priority
+  - Idea / Mind Mapping
+    - Individual brainstorm consolidate into single map reflect common and differences
+  - Affinity Diagram
+    - Allow large amount of idea to be classified as groups for review
+---
+## Collect Requirements (Tools and Techniques)
+- Group Decision Making Techniques
+  - Unanimity
+    - Everyone agrees on single course of action
+  - Majority
+    - Support from over 50% of members
+  - Plurality
+    - Largest block of group decides even if a majority is not achieved
+  - Dictatorship
+    - Individual makes the decision for the group
+    </textarea>
+    <script src="downloads/remark-latest.min.js"></script>
+    <script>
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="remark.language.js"></script>
+    <script>
+      var slideshow = remark.create({
+          highlightStyle: 'monokai',
+          highlightLanguage: 'remark'
+        }) ;
+    </script>
+  </body>
+</html>
