@@ -125,6 +125,17 @@
         margin-left: auto;
         width: 100%;
       }
+      img[alt=center] {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      img[alt=drawing1] {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        height: 300px;
+      }
     </style>
   </head>
   <body>
@@ -334,7 +345,7 @@ layout: false
 - Fast tracking = risk -> time
 ---
 ## Develop Schedule (Resource leveling)
-![draw](./lesson4/develop-schedule-resource-leveling.png)
+![drawing](./lesson4/develop-schedule-resource-leveling.png)
 ---
 ## Develop Schedule (Tools and Techniques)
 - Critical chain method
@@ -344,6 +355,84 @@ layout: false
   - Leads - start before number of days
   - Lags - delay number of days
 - Scheudling tools (e.g. software)
+---
+## Critical Path Method (CPM)
+- Used at project level
+- Requires
+  - Decomposition of project scope into activities
+  - Definition of logical sequence and relationships between activities
+  - Estimation of activities time
+- Determine series defining
+  - Minimum project duration (early finish)
+  - Longest path (last finish)
+- Calculate float
+  - Determines least schedule flexibility
+  - Zero float mean activity is on critical path
+---
+## Criitcal Path Method (CPM)
+- Network Calculations
+  - `Forward pass` through network determines `early start` for each activity
+    - Early start defines the earliest an activity can start based on the defined schedule logic
+  - `Backward pass` through network determines the `last start` for each activity
+    - Last start defines the latest an activity can start withoutdelay the project completion date, based on the defined schedule logic
+---
+## Critical Path Method (CPM)
+- Forward pass through network
+- Calculate the earlist start day for each activity
+
+![center](./lesson4/CPM1.svg)
+
+![center](./lesson4/CPM2.svg)
+
+ES - Earliest start
+
+EF - Earliest finish
+---
+## Critical Path Method (Forward Pass)
+
+![drawing](./lesson4/CPM-FP1.svg)
+---
+## Critical Path Method (Forward Pass)
+
+![drawing](./lesson4/CPM-FP2.svg)
+---
+## Critical Path Method (CPM)
+- Backward pass through network
+- Calculate the late finish (LF) date of last activity in network
+
+![center](./lesson4/CPM3.svg)
+
+![center](./lesson4/CPM4.svg)
+
+LF - Late finish
+
+LS - Late start
+---
+## Critical Path Method (Backward Pass)
+
+![drawing1](./lesson4/CPM-BP1.svg)
+
+Late Finish = Late start of uccessor
+
+Late Start = Late Finish - Duration
+---
+## Critical Path Method (Backward Pass)
+
+![drawing](./lesson4/CPM-BP2.svg)
+---
+## Critical Path Method (Float or Slack)
+- Float = Late Finish - Early Finish
+- Float = Late Start - Early Start
+
+- When
+  - Float is > 0, time is available
+  - Float = 0, on critical path
+  - Float < 0, schedule can not be ahievable
+???
+- Float is less than zero might be due to artifitial schedule change
+- Float = Slack
+---
+## Critical Path (Float)
 
     </textarea>
     <script src="downloads/remark-latest.min.js"></script>
